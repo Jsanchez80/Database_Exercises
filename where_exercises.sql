@@ -1,2 +1,1 @@
-SELECT * FROM employees WHERE first_name = 'Irena';
-SELECT * FROM employees WHERE first_name = 'Vidya';
+SELECT * FROM employees WHERE first_name IN('Irena', 'Vidya', 'Maya');
