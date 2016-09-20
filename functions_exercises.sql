@@ -21,3 +21,32 @@ FROM employees
 WHERE last_name LIKE '%q%'
 AND last_name NOT LIKE '%qu%'
 GROUP BY last_name;
+
+-- EXERCISE 8.9
+-- 2. 
+SELECT CONCAT(first_name, ' ', last_name) as 'Full Name' 
+FROM employees
+ORDER BY 'Full Name'
+LIMIT 10;
+
+-- 3.
+SELECT CONCAT(first_name, ' ', last_name) as 'Full Name' 
+FROM employees
+WHERE birth_date >= '1953-09-02'
+ORDER BY 'Full Name'
+LIMIT 10;
+
+-- 4. Reversing the last name to print first orders the list according to last name. 
+SELECT CONCAT(last_name , ' ', first_name,'   [', birth_date, ']') as 'Full Name' 
+FROM employees
+WHERE birth_date >= '1953-09-02'
+ORDER BY 'Full Name'
+LIMIT 10;
+
+-- 4. cont'd... Update the query to format full name to include the employee number so it is formatted as "employee number - lastname, firstname".
+SELECT CONCAT(emp_no, '-', last_name , ' ', first_name,'   [', birth_date, ']') as 'Full Name' 
+FROM employees
+WHERE birth_date >= '1953-09-02'
+ORDER BY 'Full Name'
+AND emp_no
+LIMIT 10;
