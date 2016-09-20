@@ -6,7 +6,7 @@ CREATE TABLE albums (
     artist VARCHAR(255) NOT NULL,
     name  VARCHAR(255) NOT NULL,
     number_of_discs INT(2) NULL,
-    release_date YEAR(4) NOT NULL,
+    release_date INT  NOT NULL,
     label VARCHAR(50) NOT NULL,
     sales FLOAT,
     ASIN_ VARCHAR(20) NOT NULL,
