@@ -15,7 +15,7 @@ WHERE hire_date LIKE '199%' AND birth_date LIKE '%-12-25'
 Order BY birth_date, hire_date DESC
 LIMIT 5;
 
--- 5h
+-- 5
 SELECT DISTINCT COUNT(*), last_name 
 FROM employees 
 WHERE last_name LIKE '%q%'
@@ -44,9 +44,8 @@ ORDER BY 'Full Name'
 LIMIT 10;
 
 -- 4. cont'd... Update the query to format full name to include the employee number so it is formatted as "employee number - lastname, firstname".
-SELECT CONCAT(emp_no, '-', last_name , ' ', first_name,'   [', birth_date, ']') as 'Full Name' 
+SELECT CONCAT(emp_no, '-', last_name , ' ', first_name) as 'Full Name', birth_date as 'DOB'
 FROM employees
-WHERE birth_date >= '1953-09-02'
 ORDER BY 'Full Name'
 AND emp_no
 LIMIT 10;
