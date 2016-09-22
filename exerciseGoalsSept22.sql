@@ -11,5 +11,19 @@ WHERE hire_date = '1990-10-22';
 
 -- Solution Note - 
 
-describe employees;
 
+
+-- Question 2. Find all the titles held by all employees with the first name Aamod.
+DESCRIBE titles;
+-- Query produced Field Types as follows
+--  emp_no, title, from_date, to dated
+DESCRIBE employees;
+-- Query produced Field Types as follows
+-- emp_no, birth_date, first_name, last_name, gender and hire_date
+
+-- Similar fields in both data sets are emp_no. You should be able to create a join on the emp_no.
+
+-- Query for the name Aamod yields 216 results using the query created below: 
+SELECT *
+FROM employees
+WHERE first_name = 'Aamod';
