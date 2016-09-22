@@ -9,3 +9,7 @@ SELECT first_name, last_name, emp_no, hire_date
 FROM employees
 WHERE hire_date = '1990-10-22';
 
+-- Solution Note - 
+
+describe employees;
+
