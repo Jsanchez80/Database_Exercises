@@ -9,6 +9,15 @@ SELECT first_name, last_name, emp_no, hire_date
 FROM employees
 WHERE hire_date = '1990-10-22';
 
+SELECT * 
+FROM employees
+WHERE hire_date = (
+	SELECT hire_date
+	FROM employees
+	WHERE emp_no = '101010'
+);
+	
+
 -- Solution Note - 
 
 
@@ -38,6 +47,15 @@ JOIN titles as t
 WHERE e.first_name = 'Aamod'
 ORDER BY e.last_name;
 
+-- Refactored a bit to give it a different output
+SELECT title
+FROM titles
+WHERE emp_no IN (
+	SELECT emp_no
+	FROM employees
+	WHERE first_name = 'Aamod'
+) GROUP BY title;
+
 -- Question 3. Find all the department managers that are female.
 DESCRIBE employees;
 -- Query produced Field Types as follows:
@@ -48,5 +66,16 @@ DESCRIBE dept_manager;
 DESCRIBE departments;
 -- Query produced Field Types as follows:
 -- dept_no, dept_name 
+SELECT first_name, last_name, gender 
 
+
+
+-- Refactored as a subquery:
+SELECT *
+FROM employees 
+WHERE emp_no IN (
+	SELECT emp_no
+	FROM dept_manager
+	WHERE to_date = '9999-01-01'
+) AND gender ='F';
 
